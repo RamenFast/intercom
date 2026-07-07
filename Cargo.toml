@@ -1,0 +1,19 @@
+[package]
+name = "intercom"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+description = "The station's two-way voice — local TTS (piper) and STT (whisper.cpp) under one convention CLI"
+repository = "https://github.com/RamenFast/intercom"
+
+[[bin]]
+name = "intercom"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+[profile.release]
+lto = "thin"
